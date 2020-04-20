@@ -1,0 +1,27 @@
+Mapping fish colors to TextMate scopes.
+Not used by code, just for keeping track.
+This is a work in progress.
+
+fish_color_autosuggestion  - comment
+fish_color_cancel          -
+fish_color_command         - variable.function, entity.name.function
+fish_color_comment         - comment
+fish_color_cwd             -
+fish_color_cwd_root        -
+fish_color_end             - punctuation.terminator
+fish_color_error           - invalid.illegal
+fish_color_escape          - constant.character.escape
+fish_color_history_current -
+fish_color_host            -
+fish_color_host_remote     -
+fish_color_match           - (global) lineHighlight
+fish_color_normal          - (global) foreground
+fish_color_operator        - keyword.operator
+fish_color_param           - variable.parameter
+fish_color_quote           - string
+fish_color_redirection     - keyword.operator
+fish_color_search_match    - (global) lineHighlight, (global) findHighlight
+fish_color_selection       - (global) selection
+fish_color_status          -
+fish_color_user            -
+fish_color_valid_path      -
