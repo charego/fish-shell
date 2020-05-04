@@ -16,6 +16,8 @@ If you want to make your command line more productive, more useful, and more fun
 Getting started
 ---------------
 
+.. asciinema:: _static/local_file.cast
+
 Once installed, just type in ``fish`` into your current shell to try it out!
 
 You will be greeted by the standard fish prompt,
