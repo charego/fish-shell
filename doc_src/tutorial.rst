@@ -5,6 +5,8 @@
 Tutorial
 ========
 
+.. _tut-why-fish:
+
 Why fish?
 ---------
 
@@ -12,6 +14,7 @@ Why fish?
 
 If you want to make your command line more productive, more useful, and more fun, without learning a bunch of arcane syntax and configuration options, then ``fish`` might be just what you're looking for!
 
+.. _tut-getting-started:
 
 Getting started
 ---------------
@@ -29,10 +32,11 @@ which means you are all set up and can start using fish::
 
 This prompt that you see above is the ``fish`` default prompt: it shows your username, hostname, and working directory.
 - to change this prompt see `how to change your prompt <#prompt>`_
-- to switch to fish permanently see `switch your default shell to fish <#switching-to-fish>`_.
+- to switch to fish permanently see `switch your default shell to fish <#tut-switching-to-fish>`_.
 
 From now on, we'll pretend your prompt is just a ``>`` to save space.
 
+.. _tut-learning-fish:
 
 Learning fish
 -------------
@@ -41,6 +45,7 @@ This tutorial assumes a basic understanding of command line shells and Unix comm
 
 If you have a strong understanding of other shells, and want to know what ``fish`` does differently, search for the magic phrase *unlike other shells*, which is used to call out important differences.
 
+.. _tut-running-commands:
 
 Running Commands
 ----------------
@@ -63,6 +68,7 @@ You can include a literal space in an argument with a backslash, or by using sin
 
 Commands can be chained with semicolons.
 
+.. _tut-getting-help:
 
 Getting Help
 ------------
@@ -78,6 +84,7 @@ Getting Help
       Synopsis...
 
 
+.. _tut-syntax-highlighting:
 
 Syntax Highlighting
 -------------------
@@ -105,6 +112,7 @@ This tells you that there exists a file that starts with ``somefi``, which is us
 
 These colors, and many more, can be changed by running ``fish_config``, or by modifying variables directly.
 
+.. _tut-wildcards:
 
 Wildcards
 ---------
@@ -133,6 +141,7 @@ Especially powerful is the recursive wildcard ** which searches directories recu
 
 If that directory traversal is taking a long time, you can :kbd:`Control`\ +\ :kbd:`C` out of it.
 
+.. _tut-pipes-and-redirections:
 
 Pipes and Redirections
 ----------------------
@@ -156,6 +165,7 @@ To redirect stdout and stderr into one file, you need to first redirect stdout, 
 
     > make > make_output.txt 2>&1
 
+.. _tut-autosuggestions:
 
 Autosuggestions
 ---------------
@@ -176,6 +186,8 @@ And history too. Type a command once, and you can re-summon it by just typing a 
 
 
 To accept the autosuggestion, hit :kbd:`→` (right arrow) or :kbd:`Control`\ +\ :kbd:`F`. To accept a single word of the autosuggestion, :kbd:`Alt`\ +\ :kbd:`→` (right arrow). If the autosuggestion is not what you want, just ignore it.
+
+.. _tut-tab-completions:
 
 Tab Completions
 ---------------
@@ -203,6 +215,8 @@ Hit tab again to cycle through the possibilities.
 
 
 Try hitting tab and see what ``fish`` can do!
+
+.. _tut-variables:
 
 Variables
 ---------
@@ -248,6 +262,8 @@ You can erase (or "delete") a variable with ``-e`` or ``--erase``
     > set -e MyVariable
     > env | grep MyVariable
     (no output)
+
+.. _tut-exports:
 
 Exports (Shell Variables)
 -------------------------
@@ -344,6 +360,8 @@ Lists adjacent to other lists or strings are expanded as :ref:`cartesian product
 
 This is similar to `Brace expansion <index#expand-brace>`__.
 
+.. _tut-command-substitutions:
+
 Command Substitutions
 ---------------------
 
@@ -395,6 +413,8 @@ To write them on the same line, use the semicolon (";"). That means the followin
     echo fish
     echo chips
 
+
+.. _tut-exit-status:
 
 Exit Status
 -----------
@@ -512,6 +532,7 @@ There is also a :ref:`switch <cmd-switch>` command::
 
 Note that :ref:`case <cmd-case>` does not fall through, and can accept multiple arguments or (quoted) wildcards.
 
+.. _tut-functions:
 
 Functions
 ---------
@@ -543,6 +564,8 @@ You can see the source for any function by passing its name to ``functions``::
     end
 
 
+.. _tut-loops:
+
 Loops
 -----
 
@@ -570,6 +593,8 @@ Iterating over a list of numbers can be done with ``seq``::
         touch file_$x.txt
     end
 
+
+.. _tut-prompt:
 
 Prompt
 ------
@@ -603,6 +628,8 @@ will look like
 
 You can choose among some sample prompts by running ``fish_config prompt``. ``fish`` also supports RPROMPT through ``fish_right_prompt``.
 
+.. _tut-path:
+
 $PATH
 -----
 
@@ -631,11 +658,11 @@ A faster way is to use the :ref:`fish_add_path <cmd-fish_add_path>` function, wh
     > fish_add_path /usr/local/bin
 
 
-The advantage is that you don't have to go mucking around in files: just run this once at the command line, and it will affect the current session and all future instances too. You can also add this line to :ref:`config.fish <tut-config>`, as it only adds the component if necessary.
+The advantage is that you don't have to go mucking around in files: just run this once at the command line, and it will affect the current session and all future instances too. You can also add this line to :ref:`config.fish <tut-startup>`, as it only adds the component if necessary.
 
 Or you can modify $fish_user_paths yourself, but you should be careful *not* to append to it unconditionally in config.fish, or it will grow longer and longer.
 
-.. _tut-config:
+.. _tut-startup:
 
 Startup (Where's .bashrc?)
 --------------------------
@@ -660,6 +687,8 @@ It is possible to directly create functions and variables in ``config.fish`` fil
 However, it is more common and efficient to use  autoloading functions and universal variables.
 
 If you want to organize your configuration, fish also reads commands in .fish files in ``~/.config/fish/conf.d/``. See :ref:`initialization <initialization>` for the details.
+
+.. _tut-autoload:
 
 Autoloading Functions
 ---------------------
@@ -700,7 +729,7 @@ Now in another shell::
     vim
 
 
-.. _switching-to-fish:
+.. _tut-switching-to-fish:
 
 Switching to fish?
 ------------------
@@ -721,6 +750,8 @@ Change your default shell with::
 (To change it back to another shell, just substitute ``/usr/local/bin/fish``
 with ``/bin/bash``, ``/bin/tcsh`` or ``/bin/zsh`` as appropriate in the steps above.)
 
+
+.. _tut-more:
 
 Ready for more?
 ---------------

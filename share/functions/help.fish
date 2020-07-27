@@ -122,7 +122,7 @@ function help --description 'Show help for the fish shell'
         case 'completion-*'
             set fish_help_page "completions.html#$fish_help_item"
         case 'tut-*'
-            set fish_help_page "tutorial.html#"(string sub -s 5 -- $fish_help_item | string replace -a -- _ -)
+            set fish_help_page "tutorial.html#"(string sub -s 5 -- $fish_help_item)
         case tutorial
             set fish_help_page "tutorial.html"
         case ''

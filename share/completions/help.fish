@@ -3,7 +3,8 @@ if test -d "$__fish_data_dir/man/man1/"
 end
 
 # Help topics in index.html
-# This was semi-automated with `grep 'class="anchor"' -A1 /usr/share/doc/fish/index.html
+# This was semi-automated with the command:
+# > string match -ar 'id="[a-zA-Z_-]+"' < index.html | sort | uniq | cut -d'"' -f2
 # It's not fully automated since that requires parsing html with regex,
 # and since this is by definition in sync - we ship the html, and we ship these completions.
 complete -c help -x -a autosuggestions -d Autosuggestions
@@ -77,25 +78,27 @@ complete -c help -x -a tutorial -d Tutorial
 complete -c help -x -a tut-autoload -d 'Autoloading Functions'
 complete -c help -x -a tut-autosuggestions -d Autosuggestions
 complete -c help -x -a tut-combiners -d 'Combiners (And, Or, Not)'
-complete -c help -x -a tut-command_substitutions -d 'Command Substitutions'
+complete -c help -x -a tut-command-substitutions -d 'Command Substitutions'
 complete -c help -x -a tut-conditionals -d 'Conditionals (If, Else, Switch)'
 complete -c help -x -a tut-exit_status -d 'Exit Status'
 complete -c help -x -a tut-exports -d 'Exports (Shell Variables)'
 complete -c help -x -a tut-functions -d Functions
-complete -c help -x -a tut-getting_help -d 'Getting Help'
-complete -c help -x -a tut-learning_Fish -d 'Learning fish'
+complete -c help -x -a tut-getting-help -d 'Getting Help'
+complete -c help -x -a tut-getting-started -d 'Getting Started'
+complete -c help -x -a tut-learning-fish -d 'Learning fish'
 complete -c help -x -a tut-lists -d Lists
 complete -c help -x -a tut-loops -d Loops
 complete -c help -x -a tut-more -d 'Ready for more?'
 complete -c help -x -a tut-path -d '$PATH'
-complete -c help -x -a tut-pipes_and_redirections -d 'Pipes and Redirections'
+complete -c help -x -a tut-pipes-and-redirections -d 'Pipes and Redirections'
 complete -c help -x -a tut-prompt -d Prompt
-complete -c help -x -a tut-running_commands -d 'Running Commands'
+complete -c help -x -a tut-running-commands -d 'Running Commands'
 complete -c help -x -a tut-semicolon -d 'Separating Commands (Semicolon)'
 complete -c help -x -a tut-startup -d "Startup (Where's .bashrc?)"
-complete -c help -x -a tut-syntax_highlighting -d 'Syntax Highlighting'
-complete -c help -x -a tut-tab_completions -d 'Tab Completions'
+complete -c help -x -a tut-switching-to-fish -d 'Switching to fish?'
+complete -c help -x -a tut-syntax-highlighting -d 'Syntax Highlighting'
+complete -c help -x -a tut-tab-completions -d 'Tab Completions'
 complete -c help -x -a tut-universal -d 'Universal Variables'
 complete -c help -x -a tut-variables -d Variables
-complete -c help -x -a tut-why_fish -d 'Why fish?'
+complete -c help -x -a tut-why-fish -d 'Why fish?'
 complete -c help -x -a tut-wildcards -d Wildcards
