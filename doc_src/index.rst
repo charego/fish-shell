@@ -83,7 +83,7 @@ You can make fish your default shell by adding fish's  executable in two places:
 - add ``/usr/local/bin/fish`` to ``/etc/shells``
 - change your default shell with ``chsh -s`` to ``/usr/local/bin/fish``
 
-For detailed instructions see :ref:`Switching to fish <switching-to-fish>`.
+For detailed instructions see :ref:`Switching to fish <tutorial:Switching to fish?>`.
 
 Uninstalling
 ------------
@@ -95,7 +95,7 @@ Shebang Line
 
 Since scripts for shell commands can be written in many different languages, they need to carry information about what interpreter is needed to execute them. For this they are expected to have a first line, the shebang line, which names an executable for this purpose.
 
-A script written in ``bash`` would need a first line like this::
+A script written in bash would need a first line like this::
 
     #!/bin/bash
 
@@ -216,7 +216,7 @@ Some characters can not be written directly on the command line. For these chara
 - ``\$`` escapes the dollar character
 - ``\\`` escapes the backslash character
 - ``\*`` escapes the star character
-- ``\?`` escapes the question mark character (this is not necessary if the `qmark-noglob` :ref:`feature flag<featureflags>` is enabled)
+- ``\?`` escapes the question mark character (this is not necessary if the ``qmark-noglob`` :ref:`feature flag<featureflags>` is enabled)
 - ``\~`` escapes the tilde character
 - ``\#`` escapes the hash character
 - ``\(`` escapes the left parenthesis character
@@ -318,11 +318,11 @@ It is possible to use a different output file descriptor by prepending its FD nu
   make fish 2>| less
 
 
-will attempt to build `fish`, and any errors will be shown using the `less` pager. [#]_
+will attempt to build ``fish``, and any errors will be shown using the ``less`` pager. [#]_
 
 As a convenience, the pipe ``&|`` redirects both stdout and stderr to the same process. (Note this is different from bash, which uses ``|&``).
 
-.. [#] A "pager" here is a program that takes output and "paginates" it. `less` doesn't just do pages, it allows arbitrary scrolling (even back!).
+.. [#] A "pager" here is a program that takes output and "paginates" it. ``less`` doesn't just do pages, it allows arbitrary scrolling (even back!).
 
 .. _syntax-background:
 
@@ -519,7 +519,7 @@ When a parameter includes an :ref:`unquoted <quotes>` ``*`` star (or "asterisk")
 
 - ``**`` matches any string of characters. This includes matching an empty string. The matched string can include the ``/`` character; that is, it goes into subdirectories. If a wildcard string with ``**`` contains a ``/``, that ``/`` still needs to be matched. For example, ``**\/*.fish`` won't match ``.fish`` files directly in the PWD, only in subdirectories. In fish you should type ``**.fish`` to match files in the PWD as well as subdirectories. [#]_
 
-- ``?`` can match any single character except ``/``. This is deprecated and can be disabled via the `qmark-noglob` :ref:`feature flag<featureflags>`, so `?` will just be an ordinary character.
+- ``?`` can match any single character except ``/``. This is deprecated and can be disabled via the ``qmark-noglob`` :ref:`feature flag<featureflags>`, so ``?`` will just be an ordinary character.
 
 Other shells, such as zsh, have a much richer glob syntax, like ``**(.)`` to only match regular files. Fish does not. Instead of reinventing the whell, use programs like ``find`` to look for files. For example::
 
@@ -568,11 +568,11 @@ Command substitution
 
 The output of a command (or an entire :ref:`pipeline <pipes>`) can be used as the arguments to another command.
 
-When you write a command in parenthesis like ``outercommand (innercommand)``, the `innercommand` will be executed first. Its output will be taken and each line given as a separate argument to `outercommand`, which will then be executed. [#]_
+When you write a command in parenthesis like ``outercommand (innercommand)``, the ``innercommand`` will be executed first. Its output will be taken and each line given as a separate argument to ``outercommand``, which will then be executed. [#]_
 
 If the output is piped to :ref:`string split or string split0 <cmd-string-split>` as the last step, those splits are used as they appear instead of splitting lines.
 
-The exit status of the last run command substitution is available in the `status <#variables-status>`_ variable if the substitution happens in the context of a :ref:`set <cmd-set>` command (so `if set -l (something)` checks if `something` returned true).
+The exit status of the last run command substitution is available in the `status <#variables-status>`_ variable if the substitution happens in the context of a :ref:`set <cmd-set>` command (so ``if set -l (something)`` checks if ``something`` returned true).
 
 Only part of the output can be used, see :ref:`index range expansion <expand-index-range>` for details.
 
@@ -663,7 +663,7 @@ In the simplest case, this is just something like::
 
     echo $HOME
 
-which will replace `$HOME` with the home directory of the current user, and pass it to :ref:`echo <cmd-echo>`, which will then print it.
+which will replace ``$HOME`` with the home directory of the current user, and pass it to :ref:`echo <cmd-echo>`, which will then print it.
 
 Sometimes a variable has no value because it is undefined or empty, and it expands to nothing::
 
@@ -846,7 +846,7 @@ However using variables as indices for command substitution is currently not sup
     set sequence (seq 5) # It needs to be written on two lines like this.
     echo $sequence[$index] # returns '2'
 
-When using indirect variable expansion with multiple `$` (``$$name``), you have to give all indices up to the variable you want to slice::
+When using indirect variable expansion with multiple ``$`` (``$$name``), you have to give all indices up to the variable you want to slice::
 
     > set -l list 1 2 3 4 5
     > set -l name list
@@ -1185,7 +1185,7 @@ You can change the settings of ``fish`` by changing the values of certain variab
   empty string, history is not saved to disk (but is still available within the interactive
   session).
 
-- ``fish_trace``, if set and not empty, will cause fish to print commands before they execute, similar to `set -x` in bash. The trace is printed to the path given by the :ref:`--debug-output <cmd-fish>` option to fish (stderr by default).
+- ``fish_trace``, if set and not empty, will cause fish to print commands before they execute, similar to ``set -x`` in bash. The trace is printed to the path given by the :ref:`--debug-output <cmd-fish>` option to fish (stderr by default).
 
 - ``fish_user_paths``, a list of directories that are prepended to ``PATH``. This can be a universal variable.
 
@@ -1203,7 +1203,7 @@ You can change the settings of ``fish`` by changing the values of certain variab
 
 - ``COLUMNS`` and ``LINES``, the current size of the terminal in height and width. These values are only used by fish if the operating system does not report the size of the terminal. Both variables must be set in that case otherwise a default of 80x24 will be used. They are updated when the window size changes.
 
-- ``fish_kill_signal``, the signal that terminated the last foreground job, or `0` if the job exited normally.
+- ``fish_kill_signal``, the signal that terminated the last foreground job, or 0 if the job exited normally.
 
 - ``fish_pid``, the process ID (PID) of the shell.
 
@@ -1500,7 +1500,7 @@ Some bindings are shared between emacs- and vi-mode because they aren't text edi
 
 - :kbd:`Alt`\ +\ :kbd:`V` Same as :kbd:`Alt`\ +\ :kbd:`E`.
 
-- :kbd:`Alt`\ +\ :kbd:`S` Prepends `sudo` to the current commandline. If the commandline is empty, prepend `sudo` to the last commandline.
+- :kbd:`Alt`\ +\ :kbd:`S` Prepends ``sudo`` to the current commandline. If the commandline is empty, prepend ``sudo`` to the last commandline.
 
 - :kbd:`Control`\ +\ :kbd:`Space` Inserts a space without expanding an :ref:`abbreviation <abbreviations>`. For vi-mode this only applies to insert-mode.
 
@@ -1559,7 +1559,7 @@ It is also possible to add all emacs-mode bindings to vi-mode by using something
 
 When in vi-mode, the :ref:`fish_mode_prompt <cmd-fish_mode_prompt>` function will display a mode indicator to the left of the prompt. To disable this feature, override it with an empty function. To display the mode elsewhere (like in your right prompt), use the output of the ``fish_default_mode_prompt`` function.
 
-When a binding switches the mode, it will repaint the mode-prompt if it exists, and the rest of the prompt only if it doesn't. So if you want a mode-indicator in your ``fish_prompt``, you need to erase ``fish_mode_prompt`` e.g. by adding an empty file at `~/.config/fish/functions/fish_mode_prompt.fish`. (Bindings that change the mode are supposed to call the `repaint-mode` bind function, see :ref:`bind <cmd-bind>`)
+When a binding switches the mode, it will repaint the mode-prompt if it exists, and the rest of the prompt only if it doesn't. So if you want a mode-indicator in your ``fish_prompt``, you need to erase ``fish_mode_prompt`` e.g. by adding an empty file at `~/.config/fish/functions/fish_mode_prompt.fish`. (Bindings that change the mode are supposed to call the ``repaint-mode`` bind function, see :ref:`bind <cmd-bind>`)
 
 The ``fish_vi_cursor`` function will be used to change the cursor's shape depending on the mode in supported terminals. The following snippet can be used to manually configure cursors after enabling vi-mode::
 
@@ -1576,7 +1576,7 @@ The ``fish_vi_cursor`` function will be used to change the cursor's shape depend
 
 Additionally, ``blink`` can be added after each of the cursor shape parameters to set a blinking cursor in the specified shape.
 
-If the cursor shape does not appear to be changing after setting the above variables, it's likely your terminal emulator does not support the capabilities necessary to do this. It may also be the case, however, that `fish_vi_cursor` has not detected your terminal's features correctly (for example, if you are using `tmux`). If this is the case, you can force `fish_vi_cursor` to set the cursor shape by setting `$fish_vi_force_cursor` in `config.fish`. You'll have to restart fish for any changes to take effect. If cursor shape setting remains broken after this, it's almost certainly an issue with your terminal emulator, and not fish.
+If the cursor shape does not appear to be changing after setting the above variables, it's likely your terminal emulator does not support the capabilities necessary to do this. It may also be the case, however, that ``fish_vi_cursor`` has not detected your terminal's features correctly (for example, if you are using tmux). If this is the case, you can force ``fish_vi_cursor`` to set the cursor shape by setting ``$fish_vi_force_cursor`` in ``config.fish``. You'll have to restart fish for any changes to take effect. If cursor shape setting remains broken after this, it's almost certainly an issue with your terminal emulator, and not fish.
 
 .. _vi-mode-command:
 
@@ -1867,7 +1867,7 @@ To customize the syntax highlighting, you can set the environment variables list
 Programmable title
 ------------------
 
-When using most virtual terminals, it is possible to set the message displayed in the titlebar of the terminal window. This can be done automatically in fish by defining the ``fish_title`` function. The ``fish_title`` function is executed before and after a new command is executed or put into the foreground and the output is used as a titlebar message. The `status current-command` builtin will always return the name of the job to be put into the foreground (or 'fish' if control is returning to the shell) when the ``fish_prompt`` function is called. The first argument to fish_title will contain the most recently executed foreground command as a string, starting with fish 2.2.
+When using most virtual terminals, it is possible to set the message displayed in the titlebar of the terminal window. This can be done automatically in fish by defining the ``fish_title`` function. The ``fish_title`` function is executed before and after a new command is executed or put into the foreground and the output is used as a titlebar message. The ``status current-command`` builtin will always return the name of the job to be put into the foreground (or 'fish' if control is returning to the shell) when the ``fish_prompt`` function is called. The first argument to fish_title will contain the most recently executed foreground command as a string, starting with fish 2.2.
 
 Examples:
 The default ``fish`` title is::
@@ -1889,7 +1889,7 @@ To show the last command in the title::
 Programmable prompt
 -------------------
 
-When fish waits for input, it will display a prompt by evaluating the ``fish_prompt`` and `fish_right_prompt` functions. The output of the former is displayed on the left and the latter's output on the right side of the terminal. The output of ``fish_mode_prompt`` will be prepended on the left, though the default function only does this when in `vi-mode <#vi-mode>`__.
+When fish waits for input, it will display a prompt by evaluating the ``fish_prompt`` and ``fish_right_prompt`` functions. The output of the former is displayed on the left and the latter's output on the right side of the terminal. The output of ``fish_mode_prompt`` will be prepended on the left, though the default function only does this when in `vi-mode <#vi-mode>`__.
 
 .. _greeting:
 

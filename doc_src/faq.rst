@@ -50,7 +50,7 @@ That's the :ref:`fish_mode_prompt <cmd-fish_mode_prompt>`. It is displayed by de
 
 If you haven't activated vi mode on purpose, you might have installed a third-party theme that does it.
 
-If you want to change or disable this display, modify the `fish_mode_prompt` function, for instance via :ref:`funced <cmd-funced>`.
+If you want to change or disable this display, modify the ``fish_mode_prompt`` function, for instance via :ref:`funced <cmd-funced>`.
 
 How do I run a command from history?
 ------------------------------------
@@ -230,7 +230,7 @@ Why doesn't history substitution ("!$" etc.) work?
 --------------------------------------------------
 Because history substitution is an awkward interface that was invented before interactive line editing was even possible. Instead of adding this pseudo-syntax, fish opts for nice history searching and recall features.  Switching requires a small change of habits: if you want to modify an old line/word, first recall it, then edit.
 
-As a special case, most of the time history substitution is used as ``sudo !!``. In that case just press :kbd:`Alt`\ +\ :kbd:`S`, and it will recall your last commandline with `sudo` prefixed (or toggle a `sudo` prefix on the current commandline if there is anything).
+As a special case, most of the time history substitution is used as ``sudo !!``. In that case just press :kbd:`Alt`\ +\ :kbd:`S`, and it will recall your last commandline with ``sudo`` prefixed (or toggle a ``sudo`` prefix on the current commandline if there is anything).
 
 In general, fish's history recall works like this:
 
@@ -282,7 +282,7 @@ or
 
   apt install postgres-*
 
-appear to work, because most of the time the string doesn't match and so it passes along the `string-*`, which is then interpreted by the receiving program.
+appear to work, because most of the time the string doesn't match and so it passes along the ``string-*``, which is then interpreted by the receiving program.
 
 But it also means that these commands can stop working at any moment once a matching file is encountered (because it has been created or the command is executed in a different working directory), and to deal with that bash needs workarounds like
 

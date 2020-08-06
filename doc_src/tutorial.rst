@@ -51,7 +51,7 @@ Running Commands
     hello world
 
 
-This runs the command `echo` with the arguments `hello` and `world`.
+This runs the command ``echo`` with the arguments ``hello`` and ``world``.
 
 You can include a literal space in an argument with a backslash, or by using single or double quotes::
 
@@ -149,7 +149,7 @@ You can pipe between commands with the usual vertical bar::
           1       2      12
 
 
-stdin and stdout can be redirected via the familiar `<` and `>`. stderr is redirected with a `2>`.
+stdin and stdout can be redirected via the familiar ``<`` and ``>``. stderr is redirected with a ``2>``.
 
 
 
@@ -239,7 +239,7 @@ Variable substitution also happens in double quotes, but not single quotes::
     My current directory is $PWD
 
 
-Unlike other shells, ``fish`` has no dedicated `VARIABLE=VALUE` syntax for setting variables. Instead it has an ordinary command: ``set``, which takes a variable name, and then its value.
+Unlike other shells, ``fish`` has no dedicated ``VARIABLE=VALUE`` syntax for setting variables. Instead it has an ordinary command: ``set``, which takes a variable name, and then its value.
 
 ::
 
@@ -270,7 +270,7 @@ You can erase (or "delete") a variable with ``-e`` or ``--erase``
 Exports (Shell Variables)
 -------------------------
 
-Sometimes you need to have a variable available to an external command, often as a setting. For example many programs like `git` or `man` read the `$PAGER` variable to figure out your preferred pager (the program that lets you scroll text). Other variables used like this include `$BROWSER`, `$LANG` (to configure your language) and `$PATH`. You'll note these are written in ALLCAPS, but that's just a convention.
+Sometimes you need to have a variable available to an external command, often as a setting. For example many programs like ``git`` or ``man`` read the ``$PAGER`` variable to figure out your preferred pager (the program that lets you scroll text). Other variables used like this include ``$BROWSER``, ``$LANG`` (to configure your language) and ``$PATH``. You'll note these are written in ALLCAPS, but that's just a convention.
 
 To give a variable to an external command, it needs to be "exported". Unlike other shells, ``fish`` does not have an export command. Instead, a variable is exported via an option to ``set``, either ``--export`` or just ``-x``.
 
@@ -298,7 +298,7 @@ Other variables, like ``$PATH``, really do have multiple values. During variable
     /usr/bin /bin /usr/sbin /sbin /usr/local/bin
 
 
-Variables whose name ends in "PATH" are automatically split on colons to become lists. They are joined using colons when exported to subcommands. This is for compatibility with other tools, which expect $PATH to use colons. You can also explicitly add this quirk to a variable with `set --path`, or remove it with `set --unpath`.
+Variables whose name ends in "PATH" are automatically split on colons to become lists. They are joined using colons when exported to subcommands. This is for compatibility with other tools, which expect $PATH to use colons. You can also explicitly add this quirk to a variable with ``set --path``, or remove it with ``set --unpath``.
 
 Lists cannot contain other lists: there is no recursion.  A variable is a list of strings, full stop.
 
